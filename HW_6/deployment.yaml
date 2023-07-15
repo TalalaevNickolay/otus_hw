@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-simple-service
+  labels:
+    app: simple-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple-service
+  template:
+    metadata:
+      labels:
+        app: simple-service
+    spec:
+      containers:
+        - name: simple-service
+          imagePullPolicy: IfNotPresent
+          image: nickolaytalalayeu/simple-service:latest
