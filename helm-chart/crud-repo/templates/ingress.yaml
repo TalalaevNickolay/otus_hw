@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: ingress-crud-service
   labels:
-    app: crud-service
+    app: crud-ingress
 spec:
   ingressClassName: nginx
   rules:
@@ -14,6 +14,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: service-crud-service
+            name: crud-service
             port:
               number: {{ .Values.ingress.appPort }}

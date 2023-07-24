@@ -15,14 +15,13 @@ spec:
         app: crud-service
     spec:
       containers:
-        - name: crud-service-hw7
+        - name: crud-app-hw7
           imagePullPolicy: IfNotPresent
           image: {{ .Values.deployment.appImage }}
           volumeMounts:
             - name: configuration-volume
-              # Note: 'app.jar' currently resides within the root folder.
               mountPath: /config
-          volumes:
-            - name: configuration-volume
-              configMap:
-                name: crud-app-configmap
+      volumes:
+        - name: configuration-volume
+          configMap:
+            name: crud-app-configmap

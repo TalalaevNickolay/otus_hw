@@ -19,3 +19,4 @@ data:
         show-sql: {{ .Values.configuration.spring.jpa.showsql }}
         generate-ddl: {{ .Values.configuration.spring.jpa.generateddl }}
         hibernate.ddl-auto: {{ .Values.configuration.spring.jpa.hibernateddlauto }}
+        database-platform: {{ .Values.configuration.spring.jpa.databaseplatform }}

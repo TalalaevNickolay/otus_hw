@@ -6,7 +6,7 @@ fullNameOverride: crud-app
 
 deployment:
     replicas: 1
-    appImage: nickolaytalalayeu/crud-service-hw7
+    appImage: nickolaytalalayeu/crud-app-hw7
     appVersion: apps/v1
     
 service:
@@ -20,7 +20,7 @@ ingress:
 configuration:
   spring:
     datasource:
-      url: jdbc:postgresql://postgres-postgresql:5432/postgresCrudDB
+      url: jdbc:postgresql://localhost:5432/postgresCrudDB
       username: postgresCrud
       password: postgresCrud
       platform: postgresql
@@ -28,6 +28,7 @@ configuration:
       showsql: true
       generateddl: false
       hibernateddlauto: validate
+      databaseplatform: org.hibernate.dialect.PostgreSQLDialect
 
 postgresql:
   postgresqlUsername: postgresCrud

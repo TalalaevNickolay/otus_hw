@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: service-crud-service
+  name: crud-service
   labels:
     app: crud-service
 spec:
