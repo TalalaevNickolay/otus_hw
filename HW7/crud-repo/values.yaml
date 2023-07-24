@@ -20,7 +20,6 @@ ingress:
 configuration:
   spring:
     datasource:
-      url: jdbc:postgresql://localhost:5432/postgresCrudDB
       username: postgresCrud
       password: postgresCrud
       platform: postgresql
@@ -28,12 +27,18 @@ configuration:
       showsql: true
       generateddl: false
       hibernateddlauto: validate
-      databaseplatform: org.hibernate.dialect.PostgreSQLDialect
+      databasePlatform: org.hibernate.dialect.PostgreSQLDialect
 
 postgresql:
   postgresqlUsername: postgresCrud
   postgresqlPassword: postgresCrud
   postgresqlDatabase: postgresCrudDB
+  servicePort: 5432
+  auth:
+    existingSecret: crud-app-postgresql
+    username: postgresCrud
+    secretKeys:
+      userPasswordKey: password
   initdbScripts:
     db-init.sql: |
       create sequence hibernate_sequence start with 1 increment by 1;

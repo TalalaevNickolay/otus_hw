@@ -11,7 +11,7 @@ data:
   application.yml: |-
     spring:
       datasource:
-        url: {{ .Values.configuration.spring.datasource.url }}
+        url: "jdbc:postgresql://{{ template "postgresql.hostname" . }}:{{- .Values.postgresql.servicePort -}}/{{- .Values.postgresql.postgresqlDatabase -}}"
         username: {{ .Values.configuration.spring.datasource.username }}
         password: {{ .Values.configuration.spring.datasource.password }}
         platform: {{ .Values.configuration.spring.datasource.platform }}
@@ -19,4 +19,4 @@ data:
         show-sql: {{ .Values.configuration.spring.jpa.showsql }}
         generate-ddl: {{ .Values.configuration.spring.jpa.generateddl }}
         hibernate.ddl-auto: {{ .Values.configuration.spring.jpa.hibernateddlauto }}
-        database-platform: {{ .Values.configuration.spring.jpa.databaseplatform }}
+        database-platform: {{ .Values.configuration.spring.jpa.databasePlatform }}
