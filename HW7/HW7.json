@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "dc5c7476-6f15-48f1-9079-f67f5431cbed",
+		"name": "OTUS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Host",
+						"value": "arch.homework",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Host",
+						"value": "arch.homework",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"ya molodec\",\r\n    \"firstname\" : \"Kol\",\r\n    \"lastname\" : \"Vykol\",\r\n    \"email\" : \"mamkayob@mail.ru\",\r\n    \"phone\" : \"666-66-66\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/user/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"user",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Host",
+						"value": "arch.homework",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"ilpin1999\",\r\n    \"firstname\" : \"Koushik\",\r\n    \"lastname\" : \"Das\",\r\n    \"email\" : \".casual@mailuuuu.ru\",\r\n    \"phone\" : \"666-66-66\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Host",
+						"value": "arch.homework",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/user/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"user",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

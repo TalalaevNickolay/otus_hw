@@ -1,0 +1,27 @@
+apiVersion: {{ .Values.deployment.appVersion }}
+kind: Deployment
+metadata:
+  name: deployment-crud-service
+  labels:
+    app: crud-service
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: crud-service
+  template:
+    metadata:
+      labels:
+        app: crud-service
+    spec:
+      containers:
+        - name: crud-app-hw7
+          imagePullPolicy: IfNotPresent
+          image: {{ .Values.deployment.appImage }}
+          volumeMounts:
+            - name: configuration-volume
+              mountPath: /config
+      volumes:
+        - name: configuration-volume
+          configMap:
+            name: crud-app-configmap
