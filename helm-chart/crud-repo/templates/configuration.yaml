@@ -11,7 +11,7 @@ data:
   application.yml: |-
     spring:
       datasource:
-        url: {{ .Values.configuration.spring.datasource.url }}
+        url: "jdbc:postgresql://{{ template "postgresql.hostname" . }}:{{- .Values.postgresql.primary.service.ports.postgresql -}}/{{- .Values.postgresql.auth.database -}}"
         username: {{ .Values.configuration.spring.datasource.username }}
         password: {{ .Values.configuration.spring.datasource.password }}
         platform: {{ .Values.configuration.spring.datasource.platform }}
