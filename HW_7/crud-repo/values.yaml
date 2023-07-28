@@ -1,0 +1,51 @@
+nginx-ingress:
+    controller:
+        enableSnippets: true
+
+fullNameOverride: crud-app
+
+deployment:
+    replicas: 1
+    appImage: nickolaytalalayeu/crud-app-hw7
+    appVersion: apps/v1
+    
+service:
+    appPort: 80
+
+ingress:
+    hostname: arch.homework
+    appPort: 80
+    path: /
+
+configuration:
+  spring:
+    datasource:
+      url: jdbc:postgresql://localhost:5432/postgresCrudDB
+      username: postgresCrud
+      password: postgresCrud
+      platform: postgresql
+    jpa:
+      showsql: true
+      generateddl: false
+      hibernateddlauto: validate
+      databasePlatform: org.hibernate.dialect.PostgreSQLDialect
+
+postgresql:
+  primary:
+    service:
+      ports:
+        postgresql: 5432
+    initdb:
+      scripts:
+        init.sql: |
+          create sequence hibernate_sequence start with 1 increment by 1;
+          create table if not exists users(id INTEGER not null, username varchar(255), first_name varchar(255), last_name varchar(255), email varchar(255), phone varchar(255), primary key (id));
+          insert into users(id,username,first_name,last_name,email,phone) values(1,'FirstUser', 'Bob', 'Milan', 'milan.bob@gmail.com', '84922204006');
+          insert into users(id,username,first_name,last_name,email,phone) values(2,'BigBoy', 'Alan', 'ronin', 'bigboy229@gmail.com', '83862214476');
+  auth:
+    database: postgresCrudDB
+    existingSecret: crud-app-postgresql
+    username: postgresCrud
+    secretKeys:
+      userPasswordKey: password
+      adminPasswordKey: postgres-password
