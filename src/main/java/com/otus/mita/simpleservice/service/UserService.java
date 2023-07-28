@@ -28,17 +28,14 @@ public class UserService {
     }
 
     @Transactional
-    public void updateUser(UserDTO userDto, int id) throws DataFormatException {
-        Optional<User> existingUser = userRepository.findById(id);
-        if(existingUser.isPresent()){
-            User user = existingUser.get();
-            user.setEmail(userDto.getEmail());
-            user.setFirstName(userDto.getFirstName());
-            user.setLastName(userDto.getLastName());
-            user.setPhone(userDto.getPhone());
-            user.setUsername(userDto.getUserName());
-            userRepository.flush();
-        } else throw new DataFormatException();
+    public void updateUser(UserDTO userDto, int id) {
+        User user = userRepository.findById(id).orElseGet(User::new);
+        user.setEmail(userDto.getEmail());
+        user.setFirstName(userDto.getFirstName());
+        user.setLastName(userDto.getLastName());
+        user.setPhone(userDto.getPhone());
+        user.setUsername(userDto.getUserName());
+        userRepository.save(user);
     }
 
     @Transactional
