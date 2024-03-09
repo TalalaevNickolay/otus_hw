@@ -11,3 +11,8 @@ spec:
     - protocol: TCP
       port: {{ .Values.service.appPort }}
       targetPort: 8000
+      name: app
+    - protocol: TCP
+      port: 9093
+      targetPort: 9000
+      name: metrics

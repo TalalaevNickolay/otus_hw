@@ -1,2 +1,6 @@
 server:
   port: 8000
+
+#export:
+#  prometheus:
+#    enabled: true

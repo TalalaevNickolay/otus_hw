@@ -6,7 +6,7 @@ metadata:
     heritage: {{ .Release.Service }}
     release: {{ .Release.Name }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    app: crud-app
+    app: crud-service
 data: 
   application.yml: |-
     spring:

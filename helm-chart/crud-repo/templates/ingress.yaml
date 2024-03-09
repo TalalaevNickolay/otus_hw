@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: ingress-crud-service
   labels:
-    app: crud-ingress
+    app: crud-service
 spec:
   ingressClassName: nginx
   rules:
